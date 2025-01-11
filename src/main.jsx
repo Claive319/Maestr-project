@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Employees from './Components/Employees/Employees';
 import Designations from './Components/Designations/Designations';
 import Departments from './Components/Departments/Departments';
+import UpdateDesignations from './Components/Designations/UpdateDesignations';
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
       {
         path: "/dept",
         element: <Departments></Departments>
+      },
+      {
+        path: '/designations/:id',
+        element: <UpdateDesignations></UpdateDesignations>,
+        loader: ({params})=> fetch(`http://localhost:3001/designations/${params.id}`)
       }
     ],
   },
